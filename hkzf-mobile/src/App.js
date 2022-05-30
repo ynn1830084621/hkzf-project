@@ -3,6 +3,7 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Link  } from 'react-router-dom';
 import Home from './pages/Home';
 import CityList from './pages/CityList';
+import News from './pages/News';
 
 function App() {
     return (
@@ -13,8 +14,10 @@ function App() {
                     <li><Link to='/citylist'>城市选择</Link></li>
                 </ul>
             <Routes>
-                <Route path='/home' element={<Home/>} />
-                <Route path='/citylist' element={<CityList/>} />
+                <Route path='/home' exact element={<Home/>}>
+                    <Route path='news' exact element={<News/>}/>
+                </Route>
+                <Route path='/citylist' exact element={<CityList/>} />
             </Routes>
             </div>
         </Router>
