@@ -1,48 +1,61 @@
 import React, { useState } from 'react';
-import { Outlet } from 'react-router-dom';
+import { Outlet, useNavigate} from 'react-router-dom';
 import { Menu } from 'antd';
 import { HomeOutlined, SearchOutlined, ContainerOutlined, UserOutlined } from '@ant-design/icons';
-
+import './index.css'
 const items = [
     {
         label: '首页',
         key: 'home',
         icon: <HomeOutlined />,
+        path: '/index',
     },
     {
         label: '找房',
-        key: 'house',
+        key: 'houselist',
         icon: <SearchOutlined />,
+        path: '/houselist'
     },
     {
         label: '资讯',
         key: 'news',
         icon: <ContainerOutlined />,
+        path: '/news',
     },
     {
         label: '我的',
-        key: 'Mine',
+        key: 'profile',
         icon: <UserOutlined />,
+        path: '/profile'
     },
 ];
 function Home() {
-    const [selectable, setSelectable] = useState('首页')
-    const [hover, setHover] = useState(false)
-    const [fullSceen, setFullSceen] = useState()
-    const FullSceen = () => {
-        setFullSceen({
-            fullScern: this.fullSceen ? {position:'fixed', height:'100%', width:'100%', top:0} : {height: 400}
-        })
-    }
+    const [current, setCurrent] = useState('home'); //默认选中菜单项
+    const navigate = useNavigate()
+    const handleClick = e => {
+        // console.log('click ', e);
+        setCurrent(e.key);
+        if (e.key === 'home') {
+            navigate('/home/index')
+        }else if(e.key === 'houselist') {
+            navigate('/home/houselist') 
+        }else if(e.key === 'news') {
+            navigate('/home/news') 
+        }else {
+            navigate('/home/profile')
+        }
+    };
     return ( 
         <div>
             <Outlet/>
-            <Menu
-                selectable={FullSceen}
-                triggerSubMenuAction={hover}
-                mode="horizontal" 
-                items={items} 
-            />;
+            <div className='home'>
+                <Menu
+                    selectedKeys={[current]}
+                    onClick={handleClick}
+                    mode="horizontal" 
+                    items={items} 
+                />
+            </div>
         </div> 
     );
 }

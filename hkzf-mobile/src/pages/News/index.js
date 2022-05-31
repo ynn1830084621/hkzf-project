@@ -4,7 +4,7 @@ class News extends Component {
     render() { 
         return ( 
             <div>
-                我是子路由页面
+                我是news页面
             </div>
         );
     }
