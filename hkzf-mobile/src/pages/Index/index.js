@@ -3,36 +3,41 @@ import { Carousel } from 'antd';
 import axios from 'axios';
 
 const contentStyle = {
-    height: '160px',
-    color: '#fff',
-    lineHeight: '160px',
-    textAlign: 'center',
-    background: '#364d79',
+    dispaly: 'inline-block',
+    width: '100%', 
+    height: 212
 };
 
 function Index() {
     const [swipers, getSwipers] = useState([])
+    //获取轮播图数据
     useEffect(() => {
         const fetchDate = async () => {
-            const res = await axios.get('http://localhost:8080/home/swiper')
-            console.log('获取轮播图数据', res); 
+            const res = await axios.get('http://localhost:8080/home/swiper').then(
+                (res) => {
+                    return res.data.body
+                }    
+            )
+            //console.log('获取轮播图数据', res)
+            getSwipers(res)
         }
         fetchDate()
-    })
+    },[])
     return(
         <Carousel autoplay>
-            <div>
-            <h3 style={contentStyle}>1</h3>
-            </div>
-            <div>
-            <h3 style={contentStyle}>2</h3>
-            </div>
-            <div>
-            <h3 style={contentStyle}>3</h3>
-            </div>
-            <div>
-            <h3 style={contentStyle}>4</h3>
-            </div>
+            { swipers.map( item => {
+                //console.log('item',item);
+                return (
+                    <a key={item.id} href='http://itcat.cn' style={contentStyle}>
+                        <img 
+                            src={`http://localhost:8080${item.imgSrc}`} 
+                            alt=''
+                            style={{width: '100%', verticalAlign: 'top'}}
+                        />
+                    </a>
+                )
+            })}
+
         </Carousel>
     )
 
