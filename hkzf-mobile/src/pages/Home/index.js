@@ -8,7 +8,7 @@ const items = [
         label: '首页',
         key: 'home',
         icon: <HomeOutlined />,
-        path: '/index',
+        path: '',
     },
     {
         label: '找房',
@@ -36,7 +36,7 @@ function Home() {
         // console.log('click ', e);
         setCurrent(e.key);
         if (e.key === 'home') {
-            navigate('/home/index')
+            navigate('/home')
         }else if(e.key === 'houselist') {
             navigate('/home/houselist') 
         }else if(e.key === 'news') {

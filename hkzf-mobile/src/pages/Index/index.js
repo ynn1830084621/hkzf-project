@@ -1,13 +1,26 @@
 import React, { useState, useEffect } from 'react';
 import { Carousel, Breadcrumb } from 'antd';
-import { HomeOutlined, TeamOutlined, EnvironmentOutlined, KeyOutlined } from '@ant-design/icons';
+//import { HomeOutlined, TeamOutlined, EnvironmentOutlined, TransactionOutlined } from '@ant-design/icons';
 import axios from 'axios';
+import Nav1 from '../../assets/images/nav-1.png'
+import Nav2 from '../../assets/images/nav-2.png'
+import Nav3 from '../../assets/images/nav-3.png'
+import Nav4 from '../../assets/images/nav-4.png'
+import './index.css'
 
 const contentStyle = {
   dispaly: 'inline-block',
   width: '100%', 
   height: 212
 };
+
+//导航菜单数据
+const navs = [
+  {id: 1, img: Nav1, title: '整租', path: '/home/list'},
+  {id: 2, img: Nav2, title: '合租', path: '/home/list'},
+  {id: 3, img: Nav3, title: '地图找房', path: '/home/map'},
+  {id: 4, img: Nav4, title: '去出租', path: '/home/list'},
+]
 
 function Index() {
   const [swipers, getSwipers] = useState([])
@@ -42,24 +55,18 @@ function Index() {
           })}
         </Carousel>
       </div>
-      <div>
-        <Breadcrumb>
-            <Breadcrumb.Item>
-              <HomeOutlined />
-              <p>整租</p>
-            </Breadcrumb.Item>
-            <Breadcrumb.Item>
-              <TeamOutlined />
-              <p>合租</p>
-            </Breadcrumb.Item>
-            <Breadcrumb.Item>
-              <EnvironmentOutlined />
-              <p>地图找房</p>
-            </Breadcrumb.Item>
-            <Breadcrumb.Item>
-              <KeyOutlined />
-              <p>出租</p>
-            </Breadcrumb.Item>
+      <div className='nav'>
+        <Breadcrumb separator="">
+          {
+            navs.map((item) => {
+              return (
+                <Breadcrumb.Item key={item.id}>
+                  <img src={item.img} alt='整租' />
+                  <h2>{item.title}</h2>
+                </Breadcrumb.Item>
+              )
+            })
+          }
         </Breadcrumb>
       </div>
     </div>

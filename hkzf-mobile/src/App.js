@@ -14,7 +14,7 @@ function App() {
             <Routes>
                 <Route path='/' exact element={<Navigate to='/home'/>} />
                 <Route path='/home' element={<Home/>}>
-                    <Route path='index' element={<Index/>}/>
+                    <Route path='' element={<Index/>}/>
                     <Route path='houselist' element={<HouseList/>}/>
                     <Route path='news' element={<News/>}/>
                     <Route path='profile' element={<Profile/>}/>
