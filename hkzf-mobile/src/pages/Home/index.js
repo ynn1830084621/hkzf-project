@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Outlet, useNavigate} from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Outlet, useNavigate, useLocation } from 'react-router-dom';
 import { Menu } from 'antd';
 import { HomeOutlined, SearchOutlined, ContainerOutlined, UserOutlined } from '@ant-design/icons';
 import './index.css'
@@ -33,7 +33,7 @@ function Home() {
     const [current, setCurrent] = useState('home'); //默认选中菜单项
     const navigate = useNavigate()
     const handleClick = e => {
-        // console.log('click ', e);
+        //console.log('click ', e);
         setCurrent(e.key);
         if (e.key === 'home') {
             navigate('/home')
@@ -45,6 +45,12 @@ function Home() {
             navigate('/home/profile')
         }
     };
+    const {pathname} = useLocation()
+    useEffect(() => {
+        if(pathname !== current ) {
+            setCurrent(current)
+        }
+    },[])
     return ( 
         <div>
             <Outlet/>

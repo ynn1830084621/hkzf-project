@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom'
 import { Carousel, Breadcrumb } from 'antd';
 //import { HomeOutlined, TeamOutlined, EnvironmentOutlined, TransactionOutlined } from '@ant-design/icons';
 import axios from 'axios';
@@ -16,10 +17,10 @@ const contentStyle = {
 
 //导航菜单数据
 const navs = [
-  {id: 1, img: Nav1, title: '整租', path: '/home/list'},
-  {id: 2, img: Nav2, title: '合租', path: '/home/list'},
+  {id: 1, img: Nav1, title: '整租', path: '/home/houselist'},
+  {id: 2, img: Nav2, title: '合租', path: '/home/houselist'},
   {id: 3, img: Nav3, title: '地图找房', path: '/home/map'},
-  {id: 4, img: Nav4, title: '去出租', path: '/home/list'},
+  {id: 4, img: Nav4, title: '去出租', path: '/home/houselist'},
 ]
 
 function Index() {
@@ -37,6 +38,7 @@ function Index() {
     }
     fetchDate()
   },[])
+  const navigate = useNavigate()
   return(
     <div>
       <div>
@@ -60,7 +62,7 @@ function Index() {
           {
             navs.map((item) => {
               return (
-                <Breadcrumb.Item key={item.id}>
+                <Breadcrumb.Item key={item.id} onClick={() => navigate(item.path)}>
                   <img src={item.img} alt='整租' />
                   <h2>{item.title}</h2>
                 </Breadcrumb.Item>
