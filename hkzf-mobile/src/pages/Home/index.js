@@ -45,7 +45,7 @@ function Home() {
             navigate('/home/profile')
         }
     };
-    const {pathname} = useLocation()
+    const { pathname } = useLocation()
     useEffect(() => {
         if(pathname !== current ) {
             setCurrent(current)
