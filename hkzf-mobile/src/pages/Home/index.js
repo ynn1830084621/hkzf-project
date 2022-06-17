@@ -50,7 +50,7 @@ function Home() {
         if(pathname !== current ) {
             setCurrent(current)
         }
-    },[])
+    }, [])
     return ( 
         <div>
             <Outlet/>
