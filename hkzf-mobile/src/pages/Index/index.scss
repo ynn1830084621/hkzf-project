@@ -1,0 +1,42 @@
+.nav {
+    padding: 0px;
+
+    .ant-breadcrumb-link {
+        text-align: center;
+        margin: 25px;
+    }
+
+    img {
+        width: 48px;
+    }
+    
+    h2 {
+        margin-top: 10px;
+        font-size: 13px;
+        width: 91px;
+        font-weight: normal;
+    }
+}
+
+.group {
+    background-color: #f6f5f6;
+    overflow: hidden;
+    padding:0 10px;
+
+    .title {
+        position: relative;
+        margin: 15px 0 15px 10px;
+        font-size: 15px;
+        .more {
+            color: #787d82;
+            position: absolute;
+            right: 0;
+            font-size: 14px;
+            font-weight: normal;
+        }
+    }
+
+    .ant-card{
+        background-color: inherit;
+    }
+}
