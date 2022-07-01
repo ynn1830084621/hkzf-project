@@ -1,16 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate, useParams } from 'react-router-dom'
-import { Carousel, Breadcrumb, Card, Flex } from 'antd';
+import { useNavigate } from 'react-router-dom'
+import { Carousel, Breadcrumb, Card, List, Row, Col, Avatar, Space } from 'antd';
 //import { HomeOutlined, TeamOutlined, EnvironmentOutlined, TransactionOutlined } from '@ant-design/icons';
 import axios from 'axios';
 import Nav1 from '../../assets/images/nav-1.png'
 import Nav2 from '../../assets/images/nav-2.png'
 import Nav3 from '../../assets/images/nav-3.png'
 import Nav4 from '../../assets/images/nav-4.png'
-import Group1 from '../../assets/images/groups/1.png';
-import Group2 from '../../assets/images/groups/1.png';
-import Group3 from '../../assets/images/groups/1.png';
-import Group4 from '../../assets/images/groups/1.png';
 import './index.scss'
 
 const contentStyle = {
@@ -27,18 +23,13 @@ const navs = [
   {id: 4, img: Nav4, title: '出租', path: '/home/houselist'},
 ]
 
-const imgData = {
-  1: Group1,
-  2: Group2,
-  3: Group3,
-  4: Group4,
-}
-
 function Index() {
   //轮播图状态数据
   const [swipers, getSwipers] = useState([])
   //住房小组数据
   const [groups, getGroups] = useState([])
+  //最新资讯数据
+  const [news, getNews] = useState([])
 
   //获取轮播图数据
   useEffect(() => {
@@ -54,7 +45,6 @@ function Index() {
     fetchDate()
   },[])
   //获取租房小组数据
-  const params = useParams();
   useEffect(() => {
     const fetchDate = async () => {
       const res = await axios.get('http://localhost:8080/home/groups', {params:{area: 'AREA%7C88cff55c-aaa4-e2e0'}})
@@ -63,8 +53,20 @@ function Index() {
           return res.data.body
         }
       )
-      console.log('获取租房小组数据', res);
+      //console.log('获取租房小组数据', res);
       getGroups(res)
+    }
+    fetchDate()
+  },[])
+  //获取最新资讯的数据
+  useEffect(() => {
+    const fetchDate = async () => {
+      const res = await axios.get('http://localhost:8080/home/news',{params:{area: 'AREA%7C88cff55c-aaa4-e2e0'}})
+      .then((res) => {
+        return res.data.body
+      })
+      console.log('最新资讯数据', res);
+      getNews(res)
     }
     fetchDate()
   },[])
@@ -102,25 +104,23 @@ function Index() {
         </Breadcrumb>
       </div>
       <div className='group'>
-        <h3 className='title'>
+        <h3 className='group-title'>
           租房小组 <span className='more'>更多</span>
         </h3>
-        <Card className='card' >
+      <Card className='card'>
           {
             groups.map((v, i) => {
               return (
                 <Card.Grid 
-                  style={{width: '50%',textAlign: 'center'}}
+                  style={{width: '50%',textAlign: 'center', height: '75px'}}
                   key={v.id}
-                  bordered={false}
                 >
-                  <div>
-                    <p>{v.title}</p>
-                    <span>{v.desc}</span>
+                  <div className='data'>
+                    <p className='title'>{v.title}</p>
+                    <span className='desc'>{v.desc}</span>
                   </div>
                   <img 
-                    // src={v.imgSrc}
-                    src={imgData[i+1]}
+                    src={`http://localhost:8080${v.imgSrc}`}
                     alt=''
                   />
               </Card.Grid>
@@ -129,14 +129,29 @@ function Index() {
             )
           }
         </Card>
-        {/* <Row gutter={[16, 16]}>
-          <Col span={12}>col-4</Col>
-          <Col span={12}>col-4</Col>
-        </Row>
-        <Row gutter={[16, 16]}>
-          <Col span={12}>col-4</Col>
-          <Col span={12}>col-4</Col>
-        </Row> */}
+      </div>
+      <div className='news'>
+        <List
+          itemLayout="vertical"
+          size="large"
+          header={<h3 className='news-title'>最新资讯</h3>}
+          dataSource={news}
+          renderItem={(item) => (
+            <List.Item>
+              <Row>
+                <Col span={12}>
+                  <img src={`http://localhost:8080${item.imgSrc}`} alt="" width={130}/>
+                </Col>
+                <Col span={12}>
+                  <h5 className='title'>{item.title}</h5>
+                  <span className='from'>{item.from}</span>
+                  <span className='date'>{item.date}</span>
+                </Col>
+              </Row>
+            </List.Item>
+          )}
+        />
+      
       </div>
     </div>
   )
