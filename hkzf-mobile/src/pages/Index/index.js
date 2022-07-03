@@ -19,9 +19,9 @@ const contentStyle = {
 //导航菜单数据
 const navs = [
   {id: 1, img: Nav1, title: '整租', path: '/home/houselist'},
-  {id: 2, img: Nav2, title: '合租', path: '/home/houselist'},
-  {id: 3, img: Nav3, title: '找房', path: '/home/map'},
-  {id: 4, img: Nav4, title: '出租', path: '/home/houselist'},
+  {id: 2, img: Nav2, title: '合租', path: '/houselist'},
+  {id: 3, img: Nav3, title: '地图找房', path: '/home/map'},
+  {id: 4, img: Nav4, title: '出租房', path: '/home/houselist'},
 ]
 
 function Index() {
@@ -105,51 +105,47 @@ function Index() {
         </div>
       </div>
       <div className='nav'>
-        <Breadcrumb separator="">
-          {
+        {
             navs.map((item) => {
-              return (
-                <Breadcrumb.Item key={item.id} onClick={() => navigate(item.path)}>
-                  <img src={item.img} alt='整租' />
-                  <h2>{item.title}</h2>
-                </Breadcrumb.Item>
+              return(
+                <div className='img-item' key={item.id}>
+                  <div className='img'  onClick={() => navigate(item.path)}>
+                    <img src={item.img} alt='整租' width={50} />
+                  </div>
+                  <div className='text'>{item.title}</div>
+                </div>
               )
             })
           }
-        </Breadcrumb>
       </div>
       <div className='group'>
-        <h3 className='group-title'>
+        <div className='group-title'>
           租房小组 <span className='more'>更多</span>
-        </h3>
-      <Card className='card'>
+        </div>
+      <div className='card'>
           {
-            groups.map((v, i) => {
+            groups.map((item) => {
               return (
-                <Card.Grid 
-                  style={{width: '50%',textAlign: 'center', height: '75px'}}
-                  key={v.id}
-                >
+                <div className='card-item'>
                   <div className='data'>
-                    <p className='title'>{v.title}</p>
-                    <span className='desc'>{v.desc}</span>
+                    <div className='title'>{item.title}</div>
+                    <div className='desc'>{item.desc}</div>
                   </div>
-                  <img 
-                    src={`http://localhost:8080${v.imgSrc}`}
-                    alt=''
-                  />
-              </Card.Grid>
+                  <div className='img'>
+                    <img src={`http://localhost:8080${item.imgSrc}`} alt='' width={60}/>
+                  </div>
+                </div>
               )
             }
             )
           }
-        </Card>
+        </div>
       </div>
       <div className='news'>
         <List
           itemLayout="vertical"
           size="large"
-          header={<h3 className='news-title'>最新资讯</h3>}
+          header={<div className='news-title'>最新资讯</div>}
           dataSource={news}
           renderItem={(item) => (
             <List.Item>
