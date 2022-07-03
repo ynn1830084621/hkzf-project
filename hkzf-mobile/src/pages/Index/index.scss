@@ -4,11 +4,9 @@
         text-align: center;
         margin: 0 25px;
     }
-
     img {
         width: 48px;
     }
-    
     h2 {
         margin-top: 10px;
         font-size: 13px;
@@ -16,7 +14,6 @@
         font-weight: normal;
     }
 }
-
 .group {
     background-color: #f6f5f6;
     overflow: hidden;
@@ -80,5 +77,41 @@
         bottom: 0;
         right: 0;
         font-size: 10px;
+    }
+}
+
+.swiper {
+    position: relative;
+
+    .search-area {
+        position: absolute;
+        display: flex;
+        width: 100%;
+        top: 20px;
+        padding: 0 20px;
+
+        .search-city {
+            background-color: #fff;
+            width: 85%;
+            display: flex;
+            align-items: center;
+
+            .city-name {
+                padding: 0 10px;
+            }
+            .city-input {
+                flex: 1;
+                padding: 0 10px;
+                color: #C6C6C6;
+            }
+        }
+        .cut {
+            color: #C6C6C6;
+            padding-bottom: 2px;
+        }
+        .search-map {
+            width: 15%;
+            padding-left: 10px;
+        }
     }
 }

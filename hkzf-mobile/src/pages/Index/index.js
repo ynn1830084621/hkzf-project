@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom'
-import { Carousel, Breadcrumb, Card, List, Row, Col, Avatar, Space } from 'antd';
+import { Carousel, Breadcrumb, Card, List, Row, Col, Input } from 'antd';
 //import { HomeOutlined, TeamOutlined, EnvironmentOutlined, TransactionOutlined } from '@ant-design/icons';
 import axios from 'axios';
 import Nav1 from '../../assets/images/nav-1.png'
 import Nav2 from '../../assets/images/nav-2.png'
 import Nav3 from '../../assets/images/nav-3.png'
 import Nav4 from '../../assets/images/nav-4.png'
+import { CaretDownOutlined, SearchOutlined, EnvironmentOutlined } from '@ant-design/icons';
 import './index.scss'
 
 const contentStyle = {
@@ -73,7 +74,7 @@ function Index() {
   const navigate = useNavigate()
   return(
     <div>
-      <div>
+      <div className='swiper'>
         <Carousel autoplay>
           { swipers.map( item => {
             //console.log('item',item);
@@ -88,6 +89,20 @@ function Index() {
             )
           })}
         </Carousel>
+        <div className='search-area'>
+          <div className='search-city'>
+            <div className='city-name' onClick={() => {navigate('/cityList')}}>
+              <span>上海</span>
+              <span style={{ paddingLeft: '2px' }}><CaretDownOutlined /></span>
+            </div>
+            <div className='cut'>|</div>
+            <div className='city-input' onClick={() => {navigate('/search')}}>
+              <span style={{ paddingRight: '5px' }}><SearchOutlined /></span>
+              <span>请输入小区或地址</span>
+            </div>
+          </div>
+          <div className='search-map' onClick={() => {navigate('/map')}}><EnvironmentOutlined /></div>
+        </div>
       </div>
       <div className='nav'>
         <Breadcrumb separator="">
