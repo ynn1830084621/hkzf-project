@@ -154,7 +154,7 @@ function Index() {
                   <img src={`http://localhost:8080${item.imgSrc}`} alt="" width={130}/>
                 </Col>
                 <Col span={12}>
-                  <h5 className='title'>{item.title}</h5>
+                  <div className='title'>{item.title}</div>
                   <span className='from'>{item.from}</span>
                   <span className='date'>{item.date}</span>
                 </Col>
