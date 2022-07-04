@@ -8,6 +8,7 @@ import Index from './pages/Index';
 import HouseList from './pages/HouseList';
 import Profile from './pages/Profile';
 
+
 function App() {
     return (
         <Router>

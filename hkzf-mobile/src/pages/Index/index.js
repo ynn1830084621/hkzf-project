@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom'
-import { Carousel, Breadcrumb, Card, List, Row, Col, Input } from 'antd';
+import { Carousel, List, Row, Col } from 'antd';
 //import { HomeOutlined, TeamOutlined, EnvironmentOutlined, TransactionOutlined } from '@ant-design/icons';
 import axios from 'axios';
 import Nav1 from '../../assets/images/nav-1.png'
@@ -20,11 +20,12 @@ const contentStyle = {
 const navs = [
   {id: 1, img: Nav1, title: '整租', path: '/home/houselist'},
   {id: 2, img: Nav2, title: '合租', path: '/houselist'},
-  {id: 3, img: Nav3, title: '地图找房', path: '/home/map'},
+  {id: 3, img: Nav3, title: '地图找房', path: '/map'},
   {id: 4, img: Nav4, title: '出租房', path: '/home/houselist'},
 ]
 
 function Index() {
+  const navigate = useNavigate()
   //轮播图状态数据
   const [swipers, getSwipers] = useState([])
   //住房小组数据
@@ -32,6 +33,10 @@ function Index() {
   //最新资讯数据
   const [news, getNews] = useState([])
 
+  //获取地理位置
+  navigator.geolocation.getCurrentPosition(position => {
+    console.log('当前地理位置', position);
+  })
   //获取轮播图数据
   useEffect(() => {
     const fetchDate = async () => {
@@ -58,7 +63,7 @@ function Index() {
       getGroups(res)
     }
     fetchDate()
-  },[])
+  }, [])
   //获取最新资讯的数据
   useEffect(() => {
     const fetchDate = async () => {
@@ -66,12 +71,11 @@ function Index() {
       .then((res) => {
         return res.data.body
       })
-      console.log('最新资讯数据', res);
+      //console.log('最新资讯数据', res);
       getNews(res)
     }
     fetchDate()
-  },[])
-  const navigate = useNavigate()
+  }, [])
   return(
     <div>
       <div className='swiper'>
@@ -126,7 +130,7 @@ function Index() {
           {
             groups.map((item) => {
               return (
-                <div className='card-item'>
+                <div className='card-item' key={item.id}>
                   <div className='data'>
                     <div className='title'>{item.title}</div>
                     <div className='desc'>{item.desc}</div>
@@ -148,7 +152,7 @@ function Index() {
           header={<div className='news-title'>最新资讯</div>}
           dataSource={news}
           renderItem={(item) => (
-            <List.Item>
+            <List.Item key={item.id}>
               <Row>
                 <Col span={12}>
                   <img src={`http://localhost:8080${item.imgSrc}`} alt="" width={130}/>
