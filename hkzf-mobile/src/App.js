@@ -3,7 +3,7 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import Home from './pages/Home';
 import CityList from './pages/CityList';
-import News from './pages/News';
+import Life from './pages/Life';
 import Index from './pages/Index';
 import HouseList from './pages/HouseList';
 import Profile from './pages/Profile';
@@ -17,7 +17,7 @@ function App() {
                 <Route path='/home' element={<Home/>}>
                     <Route path='' element={<Index/>}/>
                     <Route path='houselist' element={<HouseList/>}/>
-                    <Route path='news' element={<News/>}/>
+                    <Route path='life' element={<Life/>}/>
                     <Route path='profile' element={<Profile/>}/>
                 </Route>
                 <Route path='/citylist' element={<CityList/>} />

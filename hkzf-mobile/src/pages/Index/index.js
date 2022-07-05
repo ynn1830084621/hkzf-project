@@ -77,7 +77,7 @@ function Index() {
     fetchDate()
   }, [])
   return(
-    <div>
+    <div className='homeIndex'>
       <div className='swiper'>
         <Carousel autoplay>
           { swipers.map( item => {

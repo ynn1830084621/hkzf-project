@@ -1,0 +1,167 @@
+.profile {
+    height: calc(100% - 50px);
+    padding: 10px;
+    background-color: #F6F5F6;
+    overflow-y: auto;
+    .header {
+        display: flex;
+        padding: 5px;
+        .change {
+            width: 75%;
+            .change-text {
+                background: #fff;
+                width:120px;
+                margin-left: 20px;
+                border-radius:30px;
+                text-align: center;
+                line-height: 30px;
+                .change-icon {
+                    width: 30px;
+                    border-radius: 25px;
+                    background: #ffa;
+                }
+            }
+        }
+        .icon {
+            display: flex;
+            width: 25%;
+            padding: 0 10px;
+            .anticon svg {
+                width: 20px;
+                align-items: center;
+            }
+        }
+    }
+    .warn {
+        background: #ffa;
+        padding: 0 20px;
+    }
+    .introduce {
+        display: flex;
+        align-items: center;
+        .img {
+            width: 25%;
+            padding: 20px;
+        }
+        .content {
+            width: 75%;
+            .title {
+                font-weight: 550;
+                font-size: 13px;
+            }
+            .text {
+                font-size:10px;
+                color: #787d82;
+            }
+        }
+    }
+    .nav {
+        border-bottom: 1px solid #787d82;
+        background: #fff;
+        .nav-item {
+            width: 25%;
+            padding: 5px 10px;
+            display: flex;
+            align-items: center;
+            .icon {
+                font-size: 20px;
+            }
+            .text {
+                padding-left: 5px;
+            }
+        }
+    }
+    .deal {
+        background: #fff;
+        padding-bottom: 10px;
+        .title {
+            padding: 10px;
+            font-size: 18px;
+            font-weight: 550;
+        }
+        .deals {
+            display: flex;
+            align-items: center;
+            .deal-item {
+                width: 20%;
+                padding: 0 15px;
+                .icon {
+                    font-size: 25px;
+                    color: #0AB16C
+                }
+            }
+        }
+    }
+    .serve {
+        margin: 10px 0;
+        padding: 10px;
+        background: #fff;
+        .serve-title {
+            display: flex;
+            align-items: center;
+            .name {
+                width: 70%;
+                font-size: 18px;
+                font-weight: 550;
+            }
+            .more {
+                width: 30%;
+                font-size: 13px;
+                color: #787d82;
+            }
+        }
+        .introduce {
+            font-size: 12px;
+            padding-bottom: 20px;
+            color: #787d82;
+        }
+        .content {
+            display: flex;
+            flex-wrap: wrap;
+            .serve-item {
+                width: 50%;
+                border: 2px solid #F6F5F6;
+                .content {
+                    display: flex;
+                    align-items: center;
+                    .img {
+                    }
+                    .title {
+                        font-weight: 550;
+                    }
+                }
+                .text {
+                    padding-left: 10px;
+                    font-size: 13px;
+                    color: #787d82;
+                }
+            }
+        }
+    }
+    .help {
+        background-color: #fff;
+        .head {
+            display: flex;
+            align-items: center;
+            img {
+                width: 15%;
+            }
+            .text {
+                width: 55%;
+                .title {
+                    font-size: 13px;
+                    font-weight: 550;
+                }
+                .introduce {
+                    font-size: 10px;
+                    color: #787d82;
+                }
+            }
+            .more {
+                width: 30%;
+                font-size: 10px;
+                color: #787d82;
+            }
+        }
+    }
+}

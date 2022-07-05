@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Outlet, useNavigate, useLocation } from 'react-router-dom';
 import { Menu } from 'antd';
-import { HomeOutlined, SearchOutlined, ContainerOutlined, UserOutlined } from '@ant-design/icons';
+import { HomeOutlined, SearchOutlined, SmileOutlined, UserOutlined } from '@ant-design/icons';
 import './index.css'
 const items = [
     {
@@ -17,10 +17,10 @@ const items = [
         path: '/houselist'
     },
     {
-        label: '资讯',
-        key: 'news',
-        icon: <ContainerOutlined />,
-        path: '/news',
+        label: '生活',
+        key: 'life',
+        icon: <SmileOutlined />,
+        path: '/life',
     },
     {
         label: '我的',
@@ -52,7 +52,7 @@ function Home() {
         }
     }, [])
     return ( 
-        <div>
+        <div style={{ height: '100vh', width: '100vw' }}>
             <Outlet/>
             <div className='home'>
                 <Menu
