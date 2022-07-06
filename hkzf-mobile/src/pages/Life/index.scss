@@ -1,0 +1,116 @@
+.life {
+    height: calc(100% - 50px);
+    background-color: #F6F5F6;
+    padding: 10px;
+    overflow-y: auto;
+    .head {
+        display: flex;
+        align-items: center;
+        padding-bottom: 30px;
+        .text {
+            width: 70%;
+            color: #08c;
+            .headline {
+                font-size: 20px;
+            }
+        }
+        .icon {
+            width: 30%;
+            display: flex;
+            align-items: center;
+            padding-left: 10px;
+            .news {
+                font-size: 25px;
+                background: '#08c';
+                padding-right: 15px;
+            }
+            .avatar {
+                font-size: 30px;
+            }
+        }
+    }
+    .nav {
+        display: flex;
+        .comment {
+            width: 60%;
+            padding: 10px;
+            margin-bottom: 5px;
+            background: #fff;
+            .people {
+                color: #787d82;
+            }
+            .title {
+                font-weight: 550;
+                font-size: 20px;
+                padding: 10px 0px;
+            }
+            .content {
+                background: #F6F5F6;
+                .text {
+                    color: #787d82;
+                    font-size: 10px;
+                }
+            }
+        }
+        .theme {
+            width: 40%;
+            .theme-item {
+                background: #fff;
+                margin: 0 0 5px 5px;
+                padding: 10px;
+                .title {
+                    font-weight: 550;
+                    font-size: 15px;
+                }
+                .text {
+                    font-size: 10px;
+                    color: #787d82;
+                }
+            }
+        }
+    }
+    .community{
+        .serve {
+            display: flex;
+            flex-wrap: wrap;
+            .serve-item {
+                width: 100%;
+                background: #fff;
+                margin-bottom: 10px;
+                padding: 10px;
+                .tip {
+                    background: #ffa;
+                    color: rgb(245, 162, 28);
+                    width: 110px;
+                    text-align: center;
+                    border-radius:30px;
+                    padding: 0 10px;
+                }
+                .title {
+                    font-size: 25px;
+                    font-weight: 550;
+                }
+                .img {
+                    padding: 10px 0;
+                    width: 335px;
+                    height: 200px;
+                }
+                .start {
+                    display: flex;
+                    .content {
+                        width: 70%;
+                        color: #787d82;
+                        padding-right: 20px;
+                    }
+                    button {
+                        width: 30%;
+                        background-color: #08c;
+                        border: none;
+                        color: #fff;
+                    }
+                }
+            }
+        }
+    }
+    
+}

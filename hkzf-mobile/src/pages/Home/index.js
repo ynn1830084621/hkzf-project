@@ -39,8 +39,8 @@ function Home() {
             navigate('/home')
         }else if(e.key === 'houselist') {
             navigate('/home/houselist') 
-        }else if(e.key === 'news') {
-            navigate('/home/news') 
+        }else if(e.key === 'life') {
+            navigate('/home/life') 
         }else {
             navigate('/home/profile')
         }
