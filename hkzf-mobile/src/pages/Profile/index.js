@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import { CustomerServiceOutlined, MessageOutlined, SettingOutlined, NodeIndexOutlined, SoundOutlined,
   HeartOutlined, TeamOutlined, FileProtectOutlined, EyeOutlined,
   FileTextOutlined, AccountBookOutlined, StarOutlined, WalletOutlined} from '@ant-design/icons'
-import { Space } from 'antd';
+import { Space, Tag } from 'antd';
 import './index.scss'
 import cat from'../../assets/images/cat.png'
 import img1 from '../../assets/images/clean.png'
@@ -119,6 +119,13 @@ function Profile() {
             <div className='introduce'>7*24小时为您守候</div>
           </div>
           <div className='more'>咨询更多问题{'>'}</div>  
+          <div className='tag'>
+            <Tag>如何预约搬家</Tag>
+            <Tag>短租含义与签约规则</Tag>
+            <Tag>签约步骤</Tag>
+            <Tag>好客服务承诺</Tag>
+            <Tag>企悦会介绍</Tag>
+          </div>
         </div>
       </div>
     </div>

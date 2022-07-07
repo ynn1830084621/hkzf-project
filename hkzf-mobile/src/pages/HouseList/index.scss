@@ -1,0 +1,104 @@
+.houselist {
+    height: calc(100% - 50px);
+    background-color: #F6F5F6;
+    padding: 0 15px;
+    overflow-y: auto;
+    .head {
+        display: flex;
+        align-items: center;
+        .head-title {
+            width: 90%;
+            font-size: 25px;
+            font-weight: 550;
+        }
+        .head-icon {
+            width: 10%;
+            font-size: 25px;
+        }
+    }
+    .see {
+        color: #787d82;
+        padding: 5px 0;
+    }
+    .nav {
+        background: #fff;
+        padding: 10px;
+        display: flex;
+        align-items: center;
+        .nav-text {
+            width: 70%;
+            .nav-title {
+                font-size: 15px;
+                font-weight: 550;
+            }
+            .nav-content {
+                color: #787d82;
+            }
+        }
+        .nav-button {
+            width: 30%;
+            height: 30px;
+            background-color: #08c;
+            color: #fff;
+            border: none;
+        }
+    }
+    .divider {
+        .ant-divider-with-text {
+            color: #787d88;
+        }
+    }
+    .content {
+        .content-button {
+            background: #ffa;
+            color: rgb(245, 162, 28);
+            padding: 5px 20px;
+            border: 1px solid rgb(245, 162, 28);
+        }
+        .house {
+            padding-top: 10px;
+            .news {
+                display: flex;
+                flex-wrap: wrap;
+                .house-item {
+                    width: 50%;
+                    background: #fff;
+                    border: 5px solid #F6F5F6;
+                    .img {
+                        position: relative;
+                        .address {
+                            color: #fff;
+                            font-size: 13px;
+                            position: absolute;
+                            display: flex;
+                            width: 100%;
+                            bottom: 5px;
+                            padding-left: 10px;
+                        }
+                        .img-icon {
+                            color: #fff;
+                            font-size: 20px;
+                            position: absolute;
+                            display: flex;
+                            width: 100%;
+                            top: 5px;
+                            left: 135px;
+                        }
+                    }
+                    .price {
+                        padding: 5px 0 0 5px;
+                        font-size: 15px;
+                        color: red;
+                    }
+                    .size {
+                        padding-left: 5px;
+                    }
+                    .tag {
+                        padding: 5px;
+                    }
+                }
+            }
+            
+        }
+    }
+}
