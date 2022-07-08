@@ -1,0 +1,54 @@
+.collect {
+    height: 100%;
+    background-color: #F6F5F6;
+    padding: 10px;
+    overflow-y: auto;
+    .head {
+        display: flex;
+        align-items: center;
+        .back {
+            width: 10%;
+            font-size: 20px;
+        }
+        .house-type {
+            width: 80%;
+            font-size: 15px;
+            text-align: center;
+            .sum {
+                padding: 0 20px;
+            }
+            .house2 {
+                padding: 0 20px;
+            }
+        }
+        .map {
+            width: 10%;
+            font-size: 20px;
+        }
+    }
+    .nav {
+        display: flex;
+        .contrast {
+            width: 80%;
+            text-align: center;
+            display: flex;
+            padding-left: 20px;
+            .heart {
+                background: #ffa;
+                width: 30%;
+            }
+            .vehicle {
+                background: #ffa;
+                width: 30%;
+            }
+            .house {
+                background: #ffa;
+                width: 30%;
+            }
+        }
+        .sort {
+            width: 20%;
+            color: rgb(245, 162, 28);
+        }
+    }
+}

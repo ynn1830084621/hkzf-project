@@ -66,12 +66,11 @@
                     border: 5px solid #F6F5F6;
                     .img {
                         position: relative;
+
                         .address {
                             color: #fff;
                             font-size: 13px;
                             position: absolute;
-                            display: flex;
-                            width: 100%;
                             bottom: 5px;
                             padding-left: 10px;
                         }
@@ -79,10 +78,8 @@
                             color: #fff;
                             font-size: 20px;
                             position: absolute;
-                            display: flex;
-                            width: 100%;
-                            top: 5px;
-                            left: 135px;
+                            top: 0px;
+                            right: 10px;
                         }
                     }
                     .price {

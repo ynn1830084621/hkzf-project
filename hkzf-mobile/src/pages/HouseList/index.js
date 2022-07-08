@@ -8,6 +8,7 @@ import house3 from '../../assets/images/houses/house3.png'
 import house4 from '../../assets/images/houses/house4.png'
 import house5 from '../../assets/images/houses/house5.png'
 import house6 from '../../assets/images/houses/house6.png'
+import { useNavigate } from 'react-router-dom';
 
 
 function HouseList() {
@@ -19,11 +20,12 @@ function HouseList() {
     {id: 5, img: house5, address: '岔路口·南方花园B组团', price: '￥1430/月', size: '合租 5居室 16m^2'  },
     {id: 6, img: house6, address: '高新区·高新花苑', price: '￥990/月', size: '合租 4居室 14.9m^2'  },
   ]
+  const navigate = useNavigate()
   return (
     <div className='houselist'>
       <div className='head'>
         <div className='head-title'>看房单</div>
-        <div className='head-icon'><SmileOutlined /></div>
+        <div className='head-icon' onClick={() => {navigate('/collect')}}><SmileOutlined /></div>
       </div>
       <div className='see'>共0个待看房源</div>
       <div className='nav'>
@@ -43,7 +45,7 @@ function HouseList() {
             {
               houses.map((item) => {
                 return (
-                  <div className='house-item' key={item.id}>                 
+                  <div className='house-item' key={item.id} onClick={() => {navigate('/detail')}} >                 
                     <div className='img'>
                       <Card
                         style={{height: 120, width: '100%'}}
