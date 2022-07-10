@@ -29,8 +29,6 @@
         }
     }
     .nav {
-        display: flex;
-        flex-wrap: wrap;
 
         .nav-content {
             width: 100%;
@@ -71,11 +69,124 @@
                     padding: 5px 10px;
                 }
             }
-            
+
             .nav-tag {
                 display: flex;
                 padding: 10px 0;
                 overflow-x: auto;
+            }
+
+            .area {
+                padding: 10px 0;
+
+                .size{
+                    display: flex;
+                    text-align: center;
+
+                    .area-item {
+                        width: 25%;
+                        border-right: 1px solid #d5dbe8;
+                        
+                        .text {
+                            font-size: 15px;
+                            font-weight: 550;
+                        }
+                    }
+
+                    .area-item-last {
+                        width: 25%;
+
+                        .text {
+                            font-size: 15px;
+                            font-weight: 550;
+                        }
+                    }
+                }
+            }
+
+            .nav-setting {
+                display: flex;
+                flex-wrap: wrap;
+
+                .setting-item {
+                    width: 50%;
+
+                    .set {
+                        color: #787d88;
+                        padding-right: 10px;
+                    }
+
+                    .setting-text {
+                        font-weight: 550;
+                    }
+                }
+            }
+        }
+
+        .nav-text {
+            padding: 10px 0;
+
+            .text-title {
+                font-size: 15px;
+                font-weight: 550;
+            }
+
+            .text-content {
+                color: #787d88;
+            }
+        }
+    }
+    .introduce {
+        padding: 10px 0;
+        .introduce-title {
+            display: flex;
+            align-items: center;
+            
+            .title {
+                width: 80%;
+                font-size: 20px;
+                font-weight: 550;
+            }
+
+            .more {
+                width: 20%;
+                color: #787d88;
+            }
+        }
+
+        .introduce-img {
+            display: flex;
+            align-items: center;
+
+            .img {
+                width: 40%;
+            }
+
+            .img-text {
+                width: 60%;
+                padding-left: 10px;
+                .img-title {
+                    font-size: 15px;
+                    font-weight: 550;
+                }
+
+                .img-address {
+                    color: #787d88;
+                    padding: 10px 0;
+                }
+            }
+        }
+
+        .introduce-content {
+            display: flex;
+            padding: 20px 0;
+            width: 100%;
+            overflow-x: auto;
+            .community {
+                background: #ffa;
+                color: rgb(245, 162, 28);
+                display: flex;
+                align-items: center;
             }
         }
     }

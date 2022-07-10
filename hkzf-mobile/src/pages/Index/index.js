@@ -108,7 +108,7 @@ function Index() {
           <div className='search-map' onClick={() => {navigate('/map')}}><EnvironmentOutlined /></div>
         </div>
       </div>
-      <div className='nav'>
+      <div className='index-nav'>
         {
             navs.map((item) => {
               return(
