@@ -61,7 +61,7 @@ function Profile() {
           <div className='text'>今天也是元气满满的一天!</div>
         </div>
       </div>
-      <div className='nav'>
+      <div className='profile-nav'>
           {
             navs.map((item) => {
               return (

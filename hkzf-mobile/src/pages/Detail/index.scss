@@ -1,7 +1,7 @@
 .detail {
-    height: calc(100% - 50px);
-    background-color: #F6F5F6;
-    padding: 10px 15px;
+    height: 100%;
+    background-color: #fff;
+    padding: 0px 15px;
     overflow-y: auto;
     .head {
         display: flex;
@@ -188,6 +188,44 @@
                 display: flex;
                 align-items: center;
             }
+        }
+    }
+
+    .detail-foot {
+        height: 50px;
+        background: #fff;
+        display: flex;
+        align-items: center;
+        position: sticky;
+        bottom: 0px;
+        .foot-collect {
+            width: 15%;
+
+            .collect-icon {
+                font-size: 20px;
+            }
+        }
+        .foot-news {
+            width: 15%;
+
+            .news-icon {
+                font-size: 20px;
+            }
+        }
+        .foot-sign {
+            width: 35%;
+            height: 50px;
+            margin-right: 10px;
+            color: #fff;
+            background: rgb(245, 162, 28);
+            border: none;
+        }
+        .foot-see {
+            width: 35%;
+            height: 50px;
+            color: #fff;
+            background: rgb(245, 162, 28);
+            border: none;
         }
     }
 }

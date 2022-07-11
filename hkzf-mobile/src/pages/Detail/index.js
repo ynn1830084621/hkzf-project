@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { ArrowLeftOutlined, CalendarOutlined, HeartOutlined, ShareAltOutlined } from '@ant-design/icons'
+import { ArrowLeftOutlined, CalendarOutlined, HeartOutlined, ShareAltOutlined, MessageOutlined} from '@ant-design/icons'
 import { useNavigate } from 'react-router-dom'
-import { Carousel, Tag, Tabs, Collapse  } from 'antd';
+import { Carousel, Tag, Tabs, Collapse } from 'antd';
 import './index.scss'
 import bedroom  from '../../assets/images/house/bedroom.png'
 import living  from '../../assets/images/house/living.png'
@@ -127,7 +127,7 @@ function Detail() {
             <div className='text-title'>房源概况</div>
             <div className='text-content'>
               <Collapse ghost >
-                <Panel header="展示房源信息" showArrow={false}>
+                <Panel header="展示全部信息" showArrow={false}>
                   <div>{text}</div>
                 </Panel>
               </Collapse>
@@ -180,6 +180,18 @@ function Detail() {
             </div>
           </Tag>
         </div>
+      </div>
+      <div className='detail-foot'>
+        <div className='foot-collect'>
+          <div className='collect-icon'><HeartOutlined /></div>
+          <div>收藏</div>
+        </div>
+        <div className='foot-news'>
+          <div className='news-icon'><MessageOutlined /></div>
+          <div>咨询</div>
+        </div>
+        <button className='foot-sign'>立即签约</button>
+        <button className='foot-see'>我要看房</button>
       </div>
     </div>
   )

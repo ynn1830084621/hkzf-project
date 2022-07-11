@@ -55,7 +55,8 @@
             }
         }
     }
-    .nav {
+    .profile-nav {
+        display: flex;
         border-bottom: 1px solid #787d82;
         background: #fff;
         .nav-item {
