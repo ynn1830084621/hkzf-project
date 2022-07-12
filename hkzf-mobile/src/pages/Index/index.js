@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom'
 import { Carousel, List, Row, Col } from 'antd';
-//import { HomeOutlined, TeamOutlined, EnvironmentOutlined, TransactionOutlined } from '@ant-design/icons';
+import { useSelector } from 'react-redux'
 import axios from 'axios';
 import Nav1 from '../../assets/images/nav-1.png'
 import Nav2 from '../../assets/images/nav-2.png'
@@ -26,6 +26,7 @@ const navs = [
 
 function Index() {
   const navigate = useNavigate()
+  const { city } = useSelector(state => state.citys)
   //轮播图状态数据
   const [swipers, getSwipers] = useState([])
   //住房小组数据
@@ -96,7 +97,7 @@ function Index() {
         <div className='search-area'>
           <div className='search-city'>
             <div className='city-name' onClick={() => {navigate('/cityList')}}>
-              <span>上海</span>
+              <span>{city}</span>
               <span style={{ paddingLeft: '2px' }}><CaretDownOutlined /></span>
             </div>
             <div className='cut'>|</div>

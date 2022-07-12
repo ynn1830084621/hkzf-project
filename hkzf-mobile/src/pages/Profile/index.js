@@ -1,9 +1,10 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom'
 import { CustomerServiceOutlined, MessageOutlined, SettingOutlined, NodeIndexOutlined, SoundOutlined,
-  HeartOutlined, TeamOutlined, FileProtectOutlined, EyeOutlined,
+  HeartOutlined, HeartTwoTone, TeamOutlined, FileProtectOutlined, EyeOutlined,
   FileTextOutlined, AccountBookOutlined, StarOutlined, WalletOutlined} from '@ant-design/icons'
 import { Space, Tag } from 'antd';
+import { useSelector } from 'react-redux';
 import './index.scss'
 import cat from'../../assets/images/cat.png'
 import img1 from '../../assets/images/clean.png'
@@ -15,8 +16,9 @@ import service from '../../assets/images/customer-service.png'
 
 function Profile() {
   const navigate = useNavigate()
+  const { collectNum } = useSelector(state => state.citys)
   const navs = [
-    {id: 1, icon: <HeartOutlined />, text: '收藏'},
+    {id: 1, icon: <HeartOutlined />, icon2: <HeartTwoTone  twoToneColor="#eb2f19" />, text: '收藏', count: collectNum},
     {id: 2, icon: <EyeOutlined />, text: '足迹'},
     {id: 3, icon: <FileProtectOutlined />, text: '约看'},
     {id: 4, icon: <TeamOutlined />, text: '合租'},
@@ -66,8 +68,13 @@ function Profile() {
             navs.map((item) => {
               return (
                 <div className='nav-item' key={item.id}>
-                  <span className='icon'>{item.icon}</span>
-                  <span className='text'>{item.text}</span>
+                  <span className='icon'>
+                    {item.count > 0 ? item.icon2 : item.icon }
+                  </span>
+                  <span className='text'>
+                    {item.text}
+                    {item.count > 0  ? `(${item.count})` : ''}
+                  </span>
                 </div>
               )
             })
@@ -80,7 +87,9 @@ function Profile() {
           deals.map((item) => {
             return (
               <div className='deal-item' key={item.id}>
-                <div className='icon'>{item.icon}</div>
+                <div className='icon'>
+                  {item.icon}
+                </div>
                 <div className='text'>{item.text}</div>
               </div>
             )

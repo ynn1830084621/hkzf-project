@@ -1,12 +1,16 @@
 import React from 'react';
 import { ArrowLeftOutlined, EnvironmentOutlined, SwapOutlined } from '@ant-design/icons'
+import { useNavigate } from 'react-router-dom'
 import './index.scss'
 
 function Collect() {
+    const navigate = useNavigate()
     return (
         <div className='collect'>
             <div className='head'>
-                <div className='back'><ArrowLeftOutlined /></div>
+                <div className='back' onClick={() => navigate(-1)}>
+                    <ArrowLeftOutlined />
+                </div>
                 <div className='house-type'>
                     <span className='sum'>房源</span>
                     <span className='house1'>小区</span>
