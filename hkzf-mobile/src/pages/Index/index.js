@@ -18,10 +18,10 @@ const contentStyle = {
 
 //导航菜单数据
 const navs = [
-  {id: 1, img: Nav1, title: '整租', path: '/home/houselist'},
-  {id: 2, img: Nav2, title: '合租', path: '/houselist'},
-  {id: 3, img: Nav3, title: '地图找房', path: '/map'},
-  {id: 4, img: Nav4, title: '出租房', path: '/home/houselist'},
+  {id: 1, img: Nav1, title: '整租'},
+  {id: 2, img: Nav2, title: '合租'},
+  {id: 3, img: Nav3, title: '地图找房'},
+  {id: 4, img: Nav4, title: '出租房'},
 ]
 
 function Index() {
@@ -34,10 +34,6 @@ function Index() {
   //最新资讯数据
   const [news, getNews] = useState([])
 
-  //获取地理位置
-  navigator.geolocation.getCurrentPosition(position => {
-    console.log('当前地理位置', position);
-  })
   //获取轮播图数据
   useEffect(() => {
     const fetchDate = async () => {
@@ -114,7 +110,7 @@ function Index() {
             navs.map((item) => {
               return(
                 <div className='img-item' key={item.id}>
-                  <div className='img'  onClick={() => navigate(item.path)}>
+                  <div className='img'>
                     <img src={item.img} alt='整租' width={50} />
                   </div>
                   <div className='text'>{item.title}</div>
