@@ -9,18 +9,21 @@ import house4 from '../../assets/images/houses/house4.png'
 import house5 from '../../assets/images/houses/house5.png'
 import house6 from '../../assets/images/houses/house6.png'
 import { useNavigate } from 'react-router-dom';
+import {useSelector} from 'react-redux'
+
 
 
 function HouseList() {
-  const houses = [
-    {id: 1, img: house1, address: '桥北·威尼斯水城', price: '￥1339/月', size: '合租 4居室 18m^2'  },
-    {id: 2, img: house2, address: '泰山街道·荣盛景秀澜山', price: '￥1160/月', size: '合租 4居室 16m^2'  },
-    {id: 3, img: house3, address: '桥北·江岸水城', price: '￥990/月', size: '合租 4居室 14.3m^2'  },
-    {id: 4, img: house4, address: '百家湖·湖滨世纪花园', price: '￥1590/月', size: '合租 4居室 18.7m^2'  },
-    {id: 5, img: house5, address: '岔路口·南方花园B组团', price: '￥1430/月', size: '合租 5居室 16m^2'  },
-    {id: 6, img: house6, address: '高新区·高新花苑', price: '￥990/月', size: '合租 4居室 14.9m^2'  },
-  ]
   const navigate = useNavigate()
+  const { housesList } = useSelector(state => state.citys)
+  const houses = [
+    {id: 1, img: house1, address: '桥北·威尼斯水城', size: '合租 4居室 18m^2'  },
+    {id: 2, img: house2, address: '泰山街道·荣盛景秀澜山', size: '合租 4居室 16m^2'  },
+    {id: 3, img: house3, address: '桥北·江岸水城', size: '合租 4居室 14.3m^2'  },
+    {id: 4, img: house4, address: '百家湖·湖滨世纪花园', size: '合租 4居室 18.7m^2'  },
+    {id: 5, img: house5, address: '岔路口·南方花园B组团', size: '合租 5居室 16m^2'  },
+    {id: 6, img: house6, address: '高新区·高新花苑', size: '合租 4居室 14.9m^2'  },
+  ]
   return (
     <div className='houselist'>
       <div className='head'>
@@ -43,9 +46,15 @@ function HouseList() {
         <div className='house'>
           <div className='news'>
             {
-              houses.map((item) => {
+              houses.map((item, index) => {
                 return (
-                  <div className='house-item' key={item.id} onClick={() => {navigate('/detail')}} >                 
+                  <div 
+                    className='house-item' 
+                    key={item.id} 
+                    onClick={() => {
+                      navigate(`/detail/${item.id}`)
+                    }} 
+                  >                 
                     <div className='img'>
                       <Card
                         style={{height: 120, width: '100%'}}
@@ -54,13 +63,13 @@ function HouseList() {
                       </Card>   
                       <div className='address'>
                         <span><EnvironmentOutlined /></span>
-                        {item.address}
+                        {housesList[index].address}
                       </div>
                       <div className='img-icon'>
                         <HeartOutlined />
                       </div>
                     </div>
-                    <div className='price'>{item.price}</div>
+                    <div className='price'>{housesList[index].price}</div>
                     <div className='size'>{item.size}</div>
                     <div className='tag'>
                       <Tag color="success">新上</Tag>

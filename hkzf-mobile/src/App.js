@@ -22,7 +22,7 @@ function App() {
                 </Route>
                 <Route path='/citylist' element={<CityList/>} />
                 <Route path='/collect' element={<Collect/>} />
-                <Route path='/detail' element={<Detail/>} />
+                <Route path='/detail/:id' element={<Detail/>} />
             </Routes>
         </Router>
         // <div>根组件<Button>按钮</Button> </div>
