@@ -1,5 +1,5 @@
 import React from 'react';
-import { SmileOutlined, HeartOutlined, EnvironmentOutlined } from '@ant-design/icons'
+import { SmileOutlined, HeartOutlined, HeartTwoTone, EnvironmentOutlined } from '@ant-design/icons'
 import { Divider, Card, Tag } from 'antd';
 import './index.scss'
 import house1 from '../../assets/images/houses/house1.png'
@@ -8,22 +8,27 @@ import house3 from '../../assets/images/houses/house3.png'
 import house4 from '../../assets/images/houses/house4.png'
 import house5 from '../../assets/images/houses/house5.png'
 import house6 from '../../assets/images/houses/house6.png'
+import { changeFlag} from '../../reducer/citySlice'
 import { useNavigate } from 'react-router-dom';
-import {useSelector} from 'react-redux'
+import {useSelector, useDispatch} from 'react-redux'
+
+
 
 
 
 function HouseList() {
   const navigate = useNavigate()
+  const dispatch = useDispatch()
   const { housesList } = useSelector(state => state.citys)
   const houses = [
-    {id: 1, img: house1, address: '桥北·威尼斯水城', size: '合租 4居室 18m^2'  },
-    {id: 2, img: house2, address: '泰山街道·荣盛景秀澜山', size: '合租 4居室 16m^2'  },
-    {id: 3, img: house3, address: '桥北·江岸水城', size: '合租 4居室 14.3m^2'  },
-    {id: 4, img: house4, address: '百家湖·湖滨世纪花园', size: '合租 4居室 18.7m^2'  },
-    {id: 5, img: house5, address: '岔路口·南方花园B组团', size: '合租 5居室 16m^2'  },
-    {id: 6, img: house6, address: '高新区·高新花苑', size: '合租 4居室 14.9m^2'  },
+    {id: 1, img: house1, size: '合租 4居室 18m^2'  },
+    {id: 2, img: house2, size: '合租 4居室 16m^2'  },
+    {id: 3, img: house3, size: '合租 4居室 14.3m^2'  },
+    {id: 4, img: house4, size: '合租 4居室 18.7m^2'  },
+    {id: 5, img: house5, size: '合租 5居室 16m^2'  },
+    {id: 6, img: house6, size: '合租 4居室 14.9m^2'  },
   ]
+
   return (
     <div className='houselist'>
       <div className='head'>
@@ -36,7 +41,12 @@ function HouseList() {
           <div className='nav-title'>找管家帮我选房</div>
           <div className='nav-content'>你还没有看房单，快去创建一个吧</div>
         </div>
-        <button className='nav-button'>创建看房单</button>
+        <button 
+          className='nav-button'
+          onClick={() => navigate('/search')}
+        >
+          创建看房单
+        </button>
       </div>
       <div className='divider'>
         <Divider plain>以下房源值得看看</Divider>
@@ -65,8 +75,16 @@ function HouseList() {
                         <span><EnvironmentOutlined /></span>
                         {housesList[index].address}
                       </div>
-                      <div className='img-icon'>
-                        <HeartOutlined />
+                      <div 
+                        className='img-icon' 
+                        onClick={(e) => {
+                          //console.log(e,'eeee');
+                          dispatch(changeFlag(housesList[index]))
+                          e.stopPropagation()
+                          ;
+                        }}
+                      >
+                        {housesList[index].flag ? <HeartTwoTone  twoToneColor="#eb2f19" /> : <HeartOutlined /> }
                       </div>
                     </div>
                     <div className='price'>{housesList[index].price}</div>

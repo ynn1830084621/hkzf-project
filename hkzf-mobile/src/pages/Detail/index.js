@@ -3,7 +3,7 @@ import { ArrowLeftOutlined, CalendarOutlined, HeartOutlined, HeartTwoTone, Share
 import { useNavigate, useParams } from 'react-router-dom'
 import { Carousel, Tag, Tabs, Collapse } from 'antd';
 import { useSelector, useDispatch } from 'react-redux';
-import { changeFlag } from '../../reducer/citySlice'
+import { changeFlag} from '../../reducer/citySlice'
 import './index.scss'
 import bedroom  from '../../assets/images/house/bedroom.png'
 import living  from '../../assets/images/house/living.png'
@@ -50,7 +50,7 @@ function Detail(props) {
   const [ tabKey, setTabKey ] = useState();
   const getInfo = () => (
     housesList.filter((item) => {
-      // console.log(item.id, +params.id, 'id');
+      //console.log(item.id, +params.id, 'id');
       return item.id === +params.id
     })
   )
@@ -201,10 +201,9 @@ function Detail(props) {
         <div className='foot-collect'>
           <div 
             className='collect-icon' 
-            // onClick={() => dispatch(addCount())}
             onClick={() => {
-              console.log('11111')
               dispatch(changeFlag(getInfo()[0]))
+              ;
             }}
           >
             {getInfo()[0].flag ? <HeartTwoTone  twoToneColor="#eb2f19" /> : <HeartOutlined /> }

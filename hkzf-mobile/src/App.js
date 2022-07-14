@@ -8,6 +8,7 @@ import HouseList from './pages/HouseList';
 import Profile from './pages/Profile';
 import Collect from './pages/Collect';
 import Detail from './pages/Detail';
+import Search from './pages/Search';
 
 function App() {
     return (
@@ -23,6 +24,7 @@ function App() {
                 <Route path='/citylist' element={<CityList/>} />
                 <Route path='/collect' element={<Collect/>} />
                 <Route path='/detail/:id' element={<Detail/>} />
+                <Route path='/search' element={<Search/>} />
             </Routes>
         </Router>
         // <div>根组件<Button>按钮</Button> </div>

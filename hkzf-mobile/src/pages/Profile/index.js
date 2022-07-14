@@ -13,16 +13,6 @@ import img3 from '../../assets/images/move-house.png'
 import img4 from '../../assets/images/gift.png'
 import service from '../../assets/images/customer-service.png'
 
-
-function Profile() {
-  const navigate = useNavigate()
-  const { collectNum } = useSelector(state => state.citys)
-  const navs = [
-    {id: 1, icon: <HeartOutlined />, icon2: <HeartTwoTone  twoToneColor="#eb2f19" />, text: '收藏', count: collectNum},
-    {id: 2, icon: <EyeOutlined />, text: '足迹'},
-    {id: 3, icon: <FileProtectOutlined />, text: '约看'},
-    {id: 4, icon: <TeamOutlined />, text: '合租'},
-  ]
   const deals = [
     {id: 1, icon: <FileTextOutlined />, text: '合同'},
     {id: 2, icon: <AccountBookOutlined />, text: '账单'},
@@ -36,6 +26,22 @@ function Profile() {
     {id: 3, img: img3, title: '省心搬家', text: '全程搬运,限时61元起 >'},
     {id: 4, img: img4, title: '超值会员店', text: '抢秒杀,屯好货 >'}
   ]
+function Profile() {
+  const navigate = useNavigate()
+  const { housesList } = useSelector(state => state.citys)
+  const getCount = () => (
+    housesList.filter((item) => {
+      return item.flag
+    })
+  )
+  console.log(getCount().length, 'count');
+  const navs = [
+    {id: 1, icon: <HeartOutlined />, icon2: <HeartTwoTone  twoToneColor="#eb2f19" />, text: '收藏', count: getCount().length},
+    {id: 2, icon: <EyeOutlined />, text: '足迹'},
+    {id: 3, icon: <FileProtectOutlined />, text: '约看'},
+    {id: 4, icon: <TeamOutlined />, text: '合租'},
+  ]
+
   return (
     <div className='profile'>
       <div className='header'>
@@ -122,7 +128,6 @@ function Profile() {
       <div className='help'>
         <div className='head'>
           <img src={service} alt='' width={50} />
-          {/* <img src='../../assets/images/customer-service.png' alt='' width={50} height={50} /> */}
           <div className='text'>
             <div className='title'>我的客服服务</div>
             <div className='introduce'>7*24小时为您守候</div>

@@ -1,0 +1,36 @@
+.search {
+    height: 100%;
+    .back {
+        font-size: 20px;
+        padding: 5px 20px;
+        border-bottom: 1px solid  #F6F5F6;
+    }
+    h2 {
+        padding: 8px 0;
+    }
+    .search-content {
+        padding: 0 20px;
+
+        .search-input {
+            background: #F6F5F6;
+        }
+
+        .example {
+            color:  #787d82;
+            padding: 10px 0;
+        }
+        
+        .ant-radio-button-wrapper {
+            margin-right: 5px;
+        }
+    }
+    .submit {
+        background: #08c;
+        border: none;
+        width: 90%;
+        height: 40px;
+        position: absolute;
+        bottom: 10px;
+        margin: 0 20px;
+    }
+}

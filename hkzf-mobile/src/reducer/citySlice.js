@@ -1,10 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit';
 
+
 export const citySlice = createSlice({
     name: 'citys',
     initialState: {
         city: '上海',
-        collectNum: 0,
+        collectNum: '',
         housesList: [
             {id: 1, address: '桥北·威尼斯水城', price: '￥1339/月', flag: false  },
             {id: 2, address: '泰山街道·荣盛景秀澜山', price: '￥1160/月', flag: false  },
@@ -18,9 +19,6 @@ export const citySlice = createSlice({
         changeCity: (state, action) => {
             state.city = action.payload
         },
-        addCount: state => {
-            state.collectNum += 1
-        },
         changeFlag: (state, action) => {
             console.log(action, 'action')
             state.housesList.map(item => {
@@ -32,5 +30,5 @@ export const citySlice = createSlice({
     }
 })
 
-export const { changeCity, addCount, changeFlag } = citySlice.actions
+export const { changeCity, changeFlag } = citySlice.actions
 export default citySlice.reducer
