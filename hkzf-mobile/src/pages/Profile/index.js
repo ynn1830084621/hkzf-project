@@ -71,9 +71,19 @@ function Profile() {
       </div>
       <div className='profile-nav'>
           {
-            navs.map((item) => {
+            navs.map((item,index) => {
               return (
-                <div className='nav-item' key={item.id}>
+                <div 
+                  key={item.id}
+                  className='nav-item' 
+                  onClick={() => {
+                    console.log(index,'0000');
+                    if(index === 0) {
+                      navigate('/collect')
+                      console.log('111');
+                    }
+                  }}
+                >
                   <span className='icon'>
                     {item.count > 0 ? item.icon2 : item.icon }
                   </span>

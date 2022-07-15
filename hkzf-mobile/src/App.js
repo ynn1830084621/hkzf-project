@@ -9,12 +9,13 @@ import Profile from './pages/Profile';
 import Collect from './pages/Collect';
 import Detail from './pages/Detail';
 import Search from './pages/Search';
+import Login from './pages/Login';
 
 function App() {
     return (
         <Router>
             <Routes>
-                <Route path='/' exact element={<Navigate to='/home'/>} />
+                <Route path='/' exact element={<Login/>} />
                 <Route path='/home' element={<Home/>}>
                     <Route path='' element={<Index/>}/>
                     <Route path='houselist' element={<HouseList/>}/>
@@ -25,6 +26,7 @@ function App() {
                 <Route path='/collect' element={<Collect/>} />
                 <Route path='/detail/:id' element={<Detail/>} />
                 <Route path='/search' element={<Search/>} />
+                <Route path='/login' element={<Login/>} />
             </Routes>
         </Router>
         // <div>根组件<Button>按钮</Button> </div>

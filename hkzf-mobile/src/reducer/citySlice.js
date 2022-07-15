@@ -14,6 +14,10 @@ export const citySlice = createSlice({
             {id: 5, address: '岔路口·南方花园B组团', price: '￥1430/月', flag: false  },
             {id: 6, address: '高新区·高新花苑', price: '￥990/月', flag: false  },
         ],
+        userList: [
+            { name: 'ynn', password: 1 },
+            { name: 'hgf', password: 2 },
+        ]
     },
     reducers: {
         changeCity: (state, action) => {

@@ -1,0 +1,11 @@
+.login {
+    height: 100%;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    .login-form {
+        width: 100%;
+        position: relative;
+        bottom: 100px;
+    }
+}
