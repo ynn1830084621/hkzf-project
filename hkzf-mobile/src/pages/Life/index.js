@@ -1,22 +1,24 @@
 import React from 'react';
-import { Avatar, Comment } from 'antd';
-import { HeartTwoTone, MessageOutlined, UserOutlined } from '@ant-design/icons';
+import { Avatar, Comment, Carousel } from 'antd';
+import { MessageOutlined, UserOutlined } from '@ant-design/icons';
+import { useSelector } from 'react-redux'
 import './index.scss'
 import museum from '../../assets/images/museum.png'
 import home from '../../assets/images/home.png'
 import smile from '../../assets/images/smile.png'
 
+const themes = [
+  {id: 1, title: '租客福利', text: '#60份B站会...'},
+  {id: 2, title: '生活瞬间', text: '#毕业租房必需...'},
+  {id: 3, title: '城市玩乐', text: '#建筑历史之旅...'}
+]
+const serves = [
+  {id: 1, tip: '夏日福利', title: '仪式感这点事儿', img: smile, content: 'B站会员卡免费领取！优质内容还有机会获得50福利点~', button: '立即参与'},
+  {id: 2, tip: '生活瞬间>', title: '#晒晒我的家', img: home, content: '晒晒你的温馨小家，优质晒家可获得50福利点~', button: '晒晒家'},
+  {id: 3, tip: '周末去哪玩>', title: '逛逛建筑博物馆', img: museum, content: '打卡近代建筑博物馆，体验历史之旅！优质打卡可获得50福利点~', button: '去看看>'}
+]
 function Life() {
-  const themes = [
-    {id: 1, title: '租客福利', text: '#60份B站会...'},
-    {id: 2, title: '生活瞬间', text: '#毕业租房必需...'},
-    {id: 3, title: '城市玩乐', text: '#建筑历史之旅...'}
-  ]
-  const serves = [
-    {id: 1, tip: '夏日福利', title: '仪式感这点事儿', img: smile, content: 'B站会员卡免费领取！优质内容还有机会获得50福利点~', button: '立即参与'},
-    {id: 2, tip: '生活瞬间>', title: '#晒晒我的家', img: home, content: '晒晒你的温馨小家，优质晒家可获得50福利点~', button: '晒晒家'},
-    {id: 3, tip: '周末去哪玩>', title: '逛逛建筑博物馆', img: museum, content: '打卡近代建筑博物馆，体验历史之旅！优质打卡可获得50福利点~', button: '去看看>'}
-  ]
+  const { commentList } = useSelector(state => state.citys)
   return (
     <div className='life'>
       <div className='head'>
@@ -30,22 +32,30 @@ function Life() {
         </div>
       </div>
       <div className='nav'>
-        <div className='comment'>
-          <div className='people'>1056位租客</div>
-          <div className='title'>
-            “想恋爱<HeartTwoTone twoToneColor="#eb2f96" />”
-          </div>
-          <div className='content'>
-            <Comment
-              author={<div>Queenie</div>}
-              avatar={<Avatar src="https://joeschmoe.io/api/v1/random" alt="Queenie" />}
-              content={
-                <p className='text'>
-                  还是希望能遇到可以相敬如宾的人,一起走人生的旅程
-                </p>
-              }
-            />
-          </div>
+        <div className='comment'> 
+          <Carousel autoplay>
+            {
+              commentList.map((i) => (
+                <div key={i.id}>
+                  <div className='people'>{`${i.number}位租客`}</div>
+                  <div className='title'>
+                    {`“${i.title}”`}
+                  </div>
+                  <div className='content'>
+                    <Comment
+                      author={<div>{i.author}</div>}
+                      avatar={<Avatar src="https://joeschmoe.io/api/v1/random" alt="Queenie" />}
+                      content={
+                        <p className='text'>
+                          {i.comment}
+                        </p>
+                      }
+                    />
+                  </div>
+                </div>
+              ))
+            }
+          </Carousel>
         </div>
         <div className='theme'>
           {

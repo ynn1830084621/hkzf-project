@@ -36,6 +36,12 @@
             padding: 10px;
             margin-bottom: 5px;
             background: #fff;
+
+            .slick-dots-bottom {
+                display: none !important;
+                // opacity: 0;
+            }
+
             .people {
                 color: #787d82;
             }
