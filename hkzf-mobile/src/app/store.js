@@ -2,7 +2,7 @@ import { configureStore } from '@reduxjs/toolkit'
 import { combineReducers } from 'redux';
 import cityReducer from '../reducer/citySlice'
 import { persistStore, persistReducer } from 'redux-persist'
-import storage from 'redux-persist/lib/storage'//会话存储
+import storage from 'redux-persist/lib/storage'
 
 // 创建reducer对象
 const reducer = {

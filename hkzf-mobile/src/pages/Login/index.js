@@ -1,6 +1,6 @@
 import React from 'react';
 import { LockOutlined, UserOutlined } from '@ant-design/icons';
-import { Button, Checkbox, Form, Input, message } from 'antd';
+import { Button, Checkbox , Form, Input, message } from 'antd';
 import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom';
 import './index.scss'
@@ -25,34 +25,46 @@ function Login() {
   };
   return (
     <div className='login'>
-      <Form
-        name="normal_login"
-        className="login-form"
-        initialValues={{ remember: true }}
-        onFinish={onFinish}
-      >
-        <Form.Item name="username" rules={[{ required: true, message: 'Please input your Username!' }]}>
-          <Input 
-            prefix={<UserOutlined className="site-form-item-icon" />}
-            placeholder="Username"
-          />
-        </Form.Item>
-        <Form.Item name="password" rules={[{ required: true, message: 'Please input your Password!' }]}>
-          <Input.Password 
-            prefix={<LockOutlined className="site-form-item-icon" />}
-            type="password"
-            placeholder="Password"
-          />
-        </Form.Item>
-        <Form.Item name="remember" valuePropName="checked">
-          <Checkbox>记住我</Checkbox>
-        </Form.Item>
-        <Form.Item>
-          <Button htmlType="submit" >
-            登录
-          </Button>
-        </Form.Item>
-      </Form>
+      <div className='login-title'>您好,</div>
+      <div className='login-welcome'>欢迎来到好客租房~</div>
+      <div className='login-content'>
+        <Form
+          name="normal_login"
+          className="login-form"
+          initialValues={{ remember: true }}
+          onFinish={onFinish}
+        >
+          <Form.Item name="username" rules={[{ required: true, message: 'Please input your Username!' }]}>
+            <Input 
+              className='login-input'
+              bordered={false}
+              size='large'
+              placeholder="请输入用户名"
+            />
+          </Form.Item>
+          <Form.Item name="password" rules={[{ required: true, message: 'Please input your Password!' }]}>
+            <Input.Password 
+              className='login-input'
+              type="password"
+              bordered={false}
+              size='large'
+              placeholder="请输入密码"
+            />
+          </Form.Item>
+          <Form.Item name="remember" valuePropName="checked" >
+            <Checkbox>记住密码</Checkbox>
+          </Form.Item>
+          <Form.Item >
+            <Button 
+              className="login-form-button" 
+              size='large'
+              htmlType="submit" 
+            >
+              登录
+            </Button>
+          </Form.Item>
+        </Form>
+      </div>
     </div>
   )
 }
