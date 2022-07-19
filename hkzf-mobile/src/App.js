@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import CityList from './pages/CityList';
 import Life from './pages/Life';
@@ -10,6 +10,7 @@ import Collect from './pages/Collect';
 import Detail from './pages/Detail';
 import Search from './pages/Search';
 import Login from './pages/Login';
+import AddComment from './pages/AddComment';
 
 function App() {
     return (
@@ -27,9 +28,9 @@ function App() {
                 <Route path='/detail/:id' element={<Detail/>} />
                 <Route path='/search' element={<Search/>} />
                 <Route path='/login' element={<Login/>} />
+                <Route path='/addcomment' element={<AddComment/>} />
             </Routes>
         </Router>
-        // <div>根组件<Button>按钮</Button> </div>
     )
 }
 export default App

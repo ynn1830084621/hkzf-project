@@ -58,10 +58,6 @@ function Profile() {
           </Space>
         </div>
       </div>
-      <div className='warn'>
-        <SoundOutlined />
-        您还未进行实名认证，点我认证
-      </div>
       <div className='introduce'>
         <div className='img'><img src={cat} alt='' width={52}/></div>
         <div className='content'>

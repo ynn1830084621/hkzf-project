@@ -18,13 +18,15 @@ export const citySlice = createSlice({
             { name: 'ynn', password: 1 },
             { name: 'hgf', password: 2 },
         ],
+
         commentList: [
             {id: 1, number:1001, title: "出闲置", author: '小晴', comment: '小浣熊电炖锅，60包邮出，需要的联系'},
-            {id: 2, number:1002, title: "想恋爱", author: 'Queenie', comment: '还是希望能遇到可以相敬如宾的人,一起走人生的旅程'},
+            {id: 2, number:1002, title: "生活日常", author: 'Queenie', comment: '还是希望能遇到可以相敬如宾的人,一起走人生的旅程'},
             {id: 3, number:1003, title: "转租", author: '小f', comment: '不到一千，干净整齐，独立厕所，有意向联系'},
             {id: 4, number:1004, title: "找室友", author: '乔儿', comment: '有没有小姐姐一起住，房租好商量'},
-        ]
+        ],
 
+        commentName: ''
     },
     reducers: {
         changeCity: (state, action) => {
@@ -38,8 +40,14 @@ export const citySlice = createSlice({
                 }
             })
         },
+        getName: (state, action) => {
+            state.commentName = action.payload
+        },
+        addComment(state, action) {
+            state.commentList.push(action.payload)
+        }
     }
 })
 
-export const { changeCity, changeFlag } = citySlice.actions
+export const { changeCity, changeFlag, getName, addComment } = citySlice.actions
 export default citySlice.reducer

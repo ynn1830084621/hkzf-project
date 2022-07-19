@@ -1,13 +1,14 @@
 import React from 'react';
-import { LockOutlined, UserOutlined } from '@ant-design/icons';
 import { Button, Checkbox , Form, Input, message } from 'antd';
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom';
 import './index.scss'
+import { getName } from '../../reducer/citySlice';
 
 function Login() {
   const navigate = useNavigate();
   const { userList } = useSelector(state => state.citys)
+  const dispatch = useDispatch()
   //提交表单且数据验证成功后回调事件
   const onFinish = (values) => {
     const userArr = userList.filter(item => { // 筛选用户得出的用户数据
@@ -18,6 +19,7 @@ function Login() {
       message.error('用户不存在');
     } else if (userArr[0].password === +values.password) {
       message.success('登录成功')
+      dispatch(getName(userArr[0]))
       navigate('/home')
     } else {
       message.error('密码错误');

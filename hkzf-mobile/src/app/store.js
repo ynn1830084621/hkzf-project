@@ -2,7 +2,7 @@ import { configureStore } from '@reduxjs/toolkit'
 import { combineReducers } from 'redux';
 import cityReducer from '../reducer/citySlice'
 import { persistStore, persistReducer } from 'redux-persist'
-import storage from 'redux-persist/lib/storage'
+import storageSession from 'redux-persist/lib/storage/session'
 
 // 创建reducer对象
 const reducer = {
@@ -11,7 +11,7 @@ const reducer = {
 // 缓存数据配置
 const persistConfig = {
     key: "root",
-    storage,
+    storage: storageSession,
     whitelist: ["citys"], //需要缓存的数据
     blacklist:[], //不需要缓存的数据
 }

@@ -1,7 +1,8 @@
 import React from 'react';
-import { Avatar, Comment, Carousel } from 'antd';
+import { Avatar, Comment, Carousel,Button } from 'antd';
 import { MessageOutlined, UserOutlined } from '@ant-design/icons';
 import { useSelector } from 'react-redux'
+import { useNavigate } from 'react-router-dom';
 import './index.scss'
 import museum from '../../assets/images/museum.png'
 import home from '../../assets/images/home.png'
@@ -19,16 +20,13 @@ const serves = [
 ]
 function Life() {
   const { commentList } = useSelector(state => state.citys)
+  const navigate = useNavigate()
   return (
     <div className='life'>
       <div className='head'>
         <div className='text'>
           <div className='headline'>好客社区</div>
           <div>和500万租客发现生活</div>
-        </div>
-        <div className='icon'>
-          <div className='news'><MessageOutlined style={{ color: '#08c' }} /></div>
-          <div className='avatar'><Avatar icon={<UserOutlined />} /></div>
         </div>
       </div>
       <div className='nav'>
@@ -89,6 +87,13 @@ function Life() {
         }
         </div>
       </div>
+      <Button 
+        className='push-comment'
+        size='large'
+        onClick={() => {navigate('/addcomment')}}
+      >
+        +立即发布
+      </Button>
     </div>
   )
 }
