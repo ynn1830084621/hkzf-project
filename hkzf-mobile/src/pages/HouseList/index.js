@@ -1,5 +1,5 @@
 import React from 'react';
-import { SmileOutlined, HeartOutlined, HeartTwoTone, EnvironmentOutlined } from '@ant-design/icons'
+import { HeartOutlined, HeartTwoTone, EnvironmentOutlined } from '@ant-design/icons'
 import { Divider, Card, Tag } from 'antd';
 import './index.scss'
 import house1 from '../../assets/images/houses/house1.png'
@@ -33,7 +33,7 @@ function HouseList() {
     <div className='houselist'>
       <div className='head'>
         <div className='head-title'>看房单</div>
-        <div className='head-icon' onClick={() => {navigate('/collect')}}><SmileOutlined /></div>
+        <div className='head-icon' onClick={() => {navigate('/collect')}}><HeartTwoTone /></div>
       </div>
       <div className='see'>共0个待看房源</div>
       <div className='nav'>

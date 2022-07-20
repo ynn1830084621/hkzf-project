@@ -1,6 +1,5 @@
 import React from 'react';
 import { Avatar, Comment, Carousel,Button } from 'antd';
-import { MessageOutlined, UserOutlined } from '@ant-design/icons';
 import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom';
 import './index.scss'

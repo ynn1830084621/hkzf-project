@@ -91,13 +91,15 @@
                 }
                 .start {
                     display: flex;
+                    align-items: center;
                     .content {
-                        width: 70%;
+                        width: 75%;
                         color: #787d82;
                         padding-right: 20px;
                     }
                     button {
-                        width: 30%;
+                        width: 25%;
+                        height: 30px;
                         background-color: #08c;
                         border: none;
                         color: #fff;
@@ -106,5 +108,11 @@
             }
         }
     }
-    
+    .push-comment {
+        position: absolute;
+        bottom: 70px;
+        left: 125px;
+        background-color: rgb(245, 162, 28);
+        color: #fff;
+    }
 }

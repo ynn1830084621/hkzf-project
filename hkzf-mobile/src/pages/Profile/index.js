@@ -1,9 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom'
-import { CustomerServiceOutlined, MessageOutlined, SettingOutlined, NodeIndexOutlined, SoundOutlined,
-  HeartOutlined, HeartTwoTone, TeamOutlined, FileProtectOutlined, EyeOutlined,
+import { NodeIndexOutlined, LogoutOutlined, HeartOutlined, HeartTwoTone, TeamOutlined, FileProtectOutlined, EyeOutlined,
   FileTextOutlined, AccountBookOutlined, StarOutlined, WalletOutlined} from '@ant-design/icons'
-import { Space, Tag } from 'antd';
+import { Modal, Tag } from 'antd';
 import { useSelector } from 'react-redux';
 import './index.scss'
 import cat from'../../assets/images/cat.png'
@@ -41,7 +40,21 @@ function Profile() {
     {id: 3, icon: <FileProtectOutlined />, text: '约看'},
     {id: 4, icon: <TeamOutlined />, text: '合租'},
   ]
+  const [isModalVisible, setIsModalVisible] = useState(false);
 
+  const showModal = () => {
+    setIsModalVisible(true);
+  };
+
+  const handleOk = () => {
+    setIsModalVisible(false);
+    navigate('/')
+    
+  };
+
+  const handleCancel = () => {
+    setIsModalVisible(false);
+  };
   return (
     <div className='profile'>
       <div className='header'>
@@ -50,12 +63,11 @@ function Profile() {
             切换到业主版 <span className='change-icon'><NodeIndexOutlined /></span>
           </div>
         </div>
-        <div className='icon'>
-          <Space>
-            <SettingOutlined/>
-            <CustomerServiceOutlined />
-            <MessageOutlined />
-          </Space>
+        <div 
+          className='icon' 
+          onClick={showModal}
+        >
+          <LogoutOutlined rotate={270}/>
         </div>
       </div>
       <div className='introduce'>
@@ -148,6 +160,16 @@ function Profile() {
           </div>
         </div>
       </div>
+      <Modal 
+        title="注销" 
+        okText="确定" 
+        cancelText="取消" 
+        visible={isModalVisible} 
+        onOk={handleOk} 
+        onCancel={handleCancel}
+      >
+        <div>是否退出当前账户</div>
+      </Modal>
     </div>
   )
 }

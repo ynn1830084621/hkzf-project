@@ -7,11 +7,11 @@
         display: flex;
         padding: 5px;
         .change {
-            width: 75%;
+            width: 90%;
             .change-text {
                 background: #fff;
                 width:120px;
-                margin-left: 20px;
+                margin-left: 10px;
                 border-radius:30px;
                 text-align: center;
                 line-height: 30px;
@@ -23,13 +23,8 @@
             }
         }
         .icon {
-            display: flex;
-            width: 25%;
-            padding: 0 10px;
-            .anticon svg {
-                width: 20px;
-                align-items: center;
-            }
+            width: 10%;
+            font-size: 20px;
         }
     }
     .warn {
@@ -172,4 +167,26 @@
             }
         }
     }
+}
+.ant-modal {
+    max-width: calc(100vw - 40px) !important ;
+    top: 200px !important;
+
+    .ant-modal-content {
+        border-radius: 5px !important;
+    
+        .ant-modal-header {
+            border: none !important;
+            border-radius: 5px !important;
+        }
+    
+        .ant-modal-body {
+            border: none !important;
+        }
+        
+        .ant-modal-footer {
+            border: none !important;
+        }
+    }
+    
 }
