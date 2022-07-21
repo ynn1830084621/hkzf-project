@@ -18,14 +18,14 @@ function App() {
             <Routes>
                 <Route path='/' exact element={<Login/>} />
                 <Route path='/home' element={<Home/>}>
-                    <Route path='' element={<Index/>}/>
+                    <Route path='index' element={<Index/>}/>
                     <Route path='houselist' element={<HouseList/>}/>
                     <Route path='life' element={<Life/>}/>
                     <Route path='profile' element={<Profile/>}/>
                 </Route>
                 <Route path='/citylist' element={<CityList/>} />
                 <Route path='/collect' element={<Collect/>} />
-                <Route path='/detail/:id' element={<Detail/>} />
+                <Route path='/detail' element={<Detail/>} />
                 <Route path='/search' element={<Search/>} />
                 <Route path='/login' element={<Login/>} />
                 <Route path='/addcomment' element={<AddComment/>} />

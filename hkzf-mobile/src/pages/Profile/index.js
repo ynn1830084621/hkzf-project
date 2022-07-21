@@ -48,7 +48,7 @@ function Profile() {
 
   const handleOk = () => {
     setIsModalVisible(false);
-    navigate('/')
+    navigate('/?action=logout')
     
   };
 

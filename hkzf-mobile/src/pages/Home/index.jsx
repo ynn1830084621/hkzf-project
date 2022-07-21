@@ -36,7 +36,7 @@ function Home() {
         //console.log('click ', e);
         setCurrent(e.key);
         if (e.key === 'home') {
-            navigate('/home')
+            navigate('/home/index')
         }else if(e.key === 'houselist') {
             navigate('/home/houselist') 
         }else if(e.key === 'life') {

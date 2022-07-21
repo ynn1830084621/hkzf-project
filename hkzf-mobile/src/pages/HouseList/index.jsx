@@ -29,6 +29,8 @@ function HouseList() {
     {id: 6, img: house6, size: '合租 4居室 14.9m^2'  },
   ]
 
+  console.log('3113131')
+
   return (
     <div className='houselist'>
       <div className='head'>
@@ -62,7 +64,7 @@ function HouseList() {
                     className='house-item' 
                     key={item.id} 
                     onClick={() => {
-                      navigate(`/detail/${item.id}`)
+                      navigate(`/detail?id=${item.id}`)
                     }} 
                   >                 
                     <div className='img'>

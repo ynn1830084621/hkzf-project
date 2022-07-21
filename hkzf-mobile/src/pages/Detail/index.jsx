@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { ArrowLeftOutlined, CalendarOutlined, HeartOutlined, HeartTwoTone, ShareAltOutlined, MessageOutlined} from '@ant-design/icons'
-import { useNavigate, useParams } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { Carousel, Tag, Tabs, Collapse } from 'antd';
 import { useSelector, useDispatch } from 'react-redux';
 import { changeFlag} from '../../reducer/citySlice'
@@ -41,20 +41,27 @@ const setting = [
   {id: 5, set: '租期', text: '可长租1年'},
 ];
 const text = ` 房源位置 为您推荐这套位于运河明珠的房源。共有12栋楼。有24小时安保。该小区有1个出入口。人车均通过此门进出。小区里有健身广场，饮水站，快递柜，花园，生活氛围浓厚。楼下的健身广场，开放给小区居民使用。楼栋概况 小区建成于2008年，楼龄较新。房源所在楼栋共有7层。楼道内比较干净整洁，日常有专人负责清理打扫。单元口配备了门禁，提升了安全性。房源概况 房源位于第1层，在窗边可欣赏小区花园景色，增添一份推窗见景的小美好。房源整体朝南。厨房有阳台，方便储物。厨房里配备了国内外一线品牌的烟机灶具。卫生间配置齐全。南北通透，空气能有效流通。该房源有2间卧室，照顾到不同家庭成员的需求，打造舒适的居住空间。`;
+
+const getParmaId = name => {
+  console.log(new URL(window.location.href), new URL(window.location.href).searchParams )
+  return new URL(window.location.href).searchParams.get(name)
+}
+
+const getInfo = (list) => (
+  list.filter((item) => {
+    return item.id === +getParmaId('id')
+  })
+)
+
 function Detail(props) {
-  const params = useParams();
-  console.log(params, '1111')
   const navigate = useNavigate()
   const dispatch = useDispatch()
   const { housesList } = useSelector(state => state.citys)
   const [ tabKey, setTabKey ] = useState();
-  const getInfo = () => (
-    housesList.filter((item) => {
-      //console.log(item.id, +params.id, 'id');
-      return item.id === +params.id
-    })
-  )
-  console.log(getInfo()[0], '000');
+  
+  const currentHouse = getInfo(housesList)[0];
+
+  console.log(currentHouse, 1)
 
   return (
     <div className='detail'>
@@ -62,7 +69,7 @@ function Detail(props) {
         <span className='back' onClick={() => navigate(-1)} >
           <ArrowLeftOutlined />
         </span>
-        <span className='house'>{getInfo()[0].address}</span>
+        <span className='house'>{currentHouse.address}</span>
         <div className='head-icon'>
           <span className='houselist' onClick={() => {navigate('/home/houselist')}}><CalendarOutlined /></span>
           <span className='collect' onClick={() => {navigate('/collect')}}><HeartOutlined /></span>
@@ -98,7 +105,7 @@ function Detail(props) {
         </div>
         <div className='nav-content'>
           <div className='money'>
-            <span className='price'>{getInfo()[0].price}</span>
+            <span className='price'>{currentHouse.price}</span>
             <span className='text'>灵活签</span>
             <span className='try'>租金试算{'>'}</span>
           </div>
@@ -202,11 +209,11 @@ function Detail(props) {
           <div 
             className='collect-icon' 
             onClick={() => {
-              dispatch(changeFlag(getInfo()[0]))
+              dispatch(changeFlag(currentHouse))
               ;
             }}
           >
-            {getInfo()[0].flag ? <HeartTwoTone  twoToneColor="#eb2f19" /> : <HeartOutlined /> }
+            {currentHouse.flag ? <HeartTwoTone  twoToneColor="#eb2f19" /> : <HeartOutlined /> }
           </div>
           <div>收藏</div>
         </div>
