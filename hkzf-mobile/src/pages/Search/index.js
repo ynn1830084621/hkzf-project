@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom'
 import { ArrowLeftOutlined } from '@ant-design/icons'
-import { Input, Slider, InputNumber, Radio  } from 'antd';
+import { Input, Slider, Radio  } from 'antd';
 import './index.scss'
 const { TextArea } = Input;
 function Search() {
