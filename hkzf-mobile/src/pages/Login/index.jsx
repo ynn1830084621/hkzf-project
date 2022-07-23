@@ -33,7 +33,7 @@ function Login() {
       }
       message.success('登录成功')
       dispatch(getName(userArr[0]))
-      navigate('/home')
+      navigate('/home/index')
     } else {
       message.error('密码错误');
     }
