@@ -49,7 +49,7 @@ function Collect() {
       <div className='content'>
         {
           houses.map((item, index) => {
-            if(housesList[index].flag === true) {
+            if(housesList[index].flag) {
               return (
                 <div 
                   className='collect-item' 
@@ -77,6 +77,7 @@ function Collect() {
                 </div>
               )
             }
+
           })
         }
       </div>
