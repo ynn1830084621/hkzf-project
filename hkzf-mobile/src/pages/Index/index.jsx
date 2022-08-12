@@ -111,7 +111,7 @@ function Index() {
               return(
                 <div className='img-item' key={item.id}>
                   <div className='img'>
-                    <img src={item.img} alt='整租' width={50} />
+                    <img src={item.img} alt='' width={50} />
                   </div>
                   <div className='text'>{item.title}</div>
                 </div>
