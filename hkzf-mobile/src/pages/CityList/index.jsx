@@ -29,7 +29,7 @@ function CityList() {
                     value={city}
                     onChange={(value) => {
                         dispatch(changeCity(value));
-                        navigate('/home')
+                        navigate('/home/index')
                     }}
                 >
                 {renderedCitys}

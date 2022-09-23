@@ -55,7 +55,7 @@ function Collect() {
                   className='collect-item' 
                   key={item.id} 
                   onClick={() => {
-                    navigate(`/detail/${item.id}`)
+                    navigate(`/detail?id=${item.id}`)
                   }} 
                 >
                   <div className='collect-title'>
@@ -77,7 +77,6 @@ function Collect() {
                 </div>
               )
             }
-
           })
         }
       </div>
