@@ -13,9 +13,6 @@ import { useNavigate } from 'react-router-dom';
 import {useSelector, useDispatch} from 'react-redux'
 
 
-
-
-
 function HouseList() {
   const navigate = useNavigate()
   const dispatch = useDispatch()

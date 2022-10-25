@@ -11,7 +11,7 @@ function Login() {
   const dispatch = useDispatch()
   //获取浏览器路径（URL）中指定名字的 query 参数的值
   const parmaId = name => {
-    console.log(new URL(window.location.href), new URL(window.location.href).searchParams )
+    // console.log(new URL(window.location.href), new URL(window.location.href).searchParams )
     return new URL(window.location.href).searchParams.get(name)
   }
   console.log(parmaId('action'))
