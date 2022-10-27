@@ -50,7 +50,7 @@ function Home() {
         if(pathname !== current ) {
             setCurrent(current)
         }
-    }, [])
+    }, [pathname, current])
     return ( 
         <div style={{ height: '100vh', width: '100vw' }}>
             <Outlet/>
